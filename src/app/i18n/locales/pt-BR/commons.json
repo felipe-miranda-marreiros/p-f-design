@@ -1,0 +1,14 @@
+{
+	"loading": {
+		"message": "Carregando..."
+	},
+	"actions": {
+		"save": "Salvar",
+		"cancel": "Cancelar",
+		"delete": "Excluir",
+		"edit": "Editar",
+		"confirm": "Confirmar",
+		"back": "Voltar",
+		"next": "Próximo"
+	}
+}
