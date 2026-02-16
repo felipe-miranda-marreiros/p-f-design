@@ -15,3 +15,6 @@ dist/
 !.vscode/extensions.json
 .idea
 coverage/
+
+*storybook.log
+storybook-static

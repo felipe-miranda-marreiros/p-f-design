@@ -1,0 +1,59 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
+import * as Stories from "./colors.stories";
+
+<Meta of={Stories} />
+
+# Colors
+
+Our color palette is organized into four main categories:
+
+- **Beige** — Primary brand colors with neutral warmth
+- **Grey** — Neutral colors for text and backgrounds
+- **Secondary Colors** — Accent colors for UI elements
+- **Others** — Extended palette for specialized use cases
+
+All colors are integrated with the MUI theme and are accessible via `theme.palette`.
+
+---
+
+## Usage
+
+```tsx
+import { colors } from "@/app/styles/colors";
+
+// Direct usage
+<Box sx={{ bgcolor: colors.beige[100] }} />
+
+// Theme usage
+<Box sx={{ bgcolor: "primary.main" }} />
+<Typography sx={{ color: "text.primary" }} />
+```
+
+## Complete Palette
+
+<Canvas of={Stories.AllColors} />
+
+## Beige
+
+Brand base colors used for warmth and background balance.
+
+<Canvas of={Stories.Beige} />
+
+## Grey
+
+Neutral scale used for typography and UI hierarchy.
+
+<Canvas of={Stories.Grey} />
+
+## Secondary Colors
+
+Accent and semantic interaction colors.
+
+<Canvas of={Stories.SecondaryColors} />
+
+
+## Semantic Mappings
+
+These are the theme-level semantic mappings used across the application.
+
+<Canvas of={Stories.SemanticColors} />
