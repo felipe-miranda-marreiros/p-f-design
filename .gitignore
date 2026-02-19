@@ -16,5 +16,9 @@ dist/
 .idea
 coverage/
 
+# Storybook
 *storybook.log
 storybook-static
+
+# Misc
+.claude

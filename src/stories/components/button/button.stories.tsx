@@ -1,5 +1,6 @@
+import { Stack } from "@mui/material";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button } from "@/stories/components/button/button.component";
+import { Button } from "./button.component";
 
 const meta = {
 	title: "Components/Button",
@@ -8,6 +9,17 @@ const meta = {
 		layout: "centered",
 	},
 	tags: ["autodocs"],
+	args: {
+		children: "Placeholder",
+		disabled: false,
+		loading: false,
+	},
+	argTypes: {
+		variant: {
+			control: { type: "select" },
+			options: ["primary", "secondary", "tertiary", "destroy"],
+		},
+	},
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -15,30 +27,37 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
 	args: {
-		label: "Button",
+		variant: "primary",
 	},
 };
 
 export const Secondary: Story = {
 	args: {
-		label: "Button",
+		variant: "secondary",
 	},
 };
 
-export const Large: Story = {
+export const Tertiary: Story = {
 	args: {
-		label: "Button",
+		variant: "tertiary",
 	},
 };
 
-export const Small: Story = {
+export const Destroy: Story = {
 	args: {
-		label: "Button",
+		variant: "destroy",
 	},
 };
 
-export const Test: Story = {
-	args: {
-		label: "Button",
-	},
+export const AllVariants: Story = {
+	render: () => (
+		<Stack spacing={2}>
+			<Stack direction="row" spacing={2}>
+				<Button variant="primary">Placeholder</Button>
+				<Button variant="secondary">Placeholder</Button>
+				<Button variant="tertiary">Placeholder</Button>
+				<Button variant="destroy">Placeholder</Button>
+			</Stack>
+		</Stack>
+	),
 };
