@@ -1,0 +1,2 @@
+export const SIDEBAR_EXPANDED_WIDTH = 300;
+export const SIDEBAR_MINIMIZED_WIDTH = 72;
