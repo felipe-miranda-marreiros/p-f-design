@@ -7,7 +7,7 @@ const StyledPaper = styled(Box)(({ theme }) => ({
 	backgroundColor: theme.palette.common.white,
 	borderRadius: 12,
 	padding: theme.spacing(8),
-	boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.05)",
+	boxShadow: theme.shadows[1],
 	[theme.breakpoints.down("sm")]: {
 		paddingBlock: theme.spacing(6),
 		paddingInline: theme.spacing(5),

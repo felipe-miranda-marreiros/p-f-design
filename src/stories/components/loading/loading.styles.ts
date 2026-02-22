@@ -223,7 +223,7 @@ export const StyledSkeletonCard = styled(Box)(({ theme }) => ({
 	display: "flex",
 	flexDirection: "column",
 	gap: theme.spacing(4),
-	boxShadow: `0 1px 3px ${alpha(theme.palette.common.black, 0.04)}`,
+	boxShadow: theme.shadows[1],
 
 	"&:nth-of-type(2) .shimmer-element::after": { animationDelay: "0.15s" },
 	"&:nth-of-type(3) .shimmer-element::after": { animationDelay: "0.3s" },
