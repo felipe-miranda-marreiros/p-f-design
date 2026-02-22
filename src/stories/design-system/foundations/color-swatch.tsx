@@ -1,5 +1,6 @@
 import { Box, Paper, Stack, Typography } from "@mui/material";
 import { useState } from "react";
+import { colors } from "@/app/styles/colors";
 
 interface ColorSwatchProps {
 	name: string;
@@ -31,7 +32,7 @@ export const ColorSwatch = ({
 		return (0.299 * r + 0.587 * g + 0.114 * b) / 255;
 	};
 
-	const textColor = getLuminance(value) > 0.5 ? "#201F24" : "#FFFFFF";
+	const textColor = getLuminance(value) > 0.5 ? colors.grey[900] : colors.white;
 
 	return (
 		<Paper
