@@ -10,6 +10,7 @@
 		"lint": "biome check .",
 		"lint:fix": "biome check --write .",
 		"format": "biome format --write .",
+		"typecheck": "tsc --noEmit --skipLibCheck",
 		"ci": "biome ci .",
 		"prepare": "lefthook install",
 		"test:ui": "vitest --ui",
