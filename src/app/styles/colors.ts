@@ -1,3 +1,9 @@
+type LeafValues<T> = T extends string
+	? T
+	: { [K in keyof T]: LeafValues<T[K]> }[keyof T];
+
+export type DesignColor = LeafValues<typeof colors>;
+
 export const colors = {
 	beige: {
 		500: "#98908B",
