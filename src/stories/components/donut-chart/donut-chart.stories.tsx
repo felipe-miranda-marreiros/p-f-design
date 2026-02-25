@@ -6,7 +6,6 @@ const meta = {
 	title: "Components/DonutChart",
 	component: DonutChart,
 	parameters: { layout: "centered" },
-	tags: ["autodocs"],
 	args: {
 		segments: [
 			{ value: 338, color: "#277D78", label: "Entertainment" },

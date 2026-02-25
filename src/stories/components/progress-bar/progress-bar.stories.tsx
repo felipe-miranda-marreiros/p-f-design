@@ -9,7 +9,6 @@ const meta = {
 	parameters: {
 		layout: "centered",
 	},
-	tags: ["autodocs"],
 	decorators: [
 		(Story) => (
 			<Box sx={{ width: 320 }}>

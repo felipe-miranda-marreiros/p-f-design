@@ -7,7 +7,6 @@ const meta = {
 	title: "Pagination/Pagination",
 	component: Pagination,
 	parameters: { layout: "padded" },
-	tags: ["autodocs"],
 	args: {
 		currentPage: 2,
 		totalPages: 5,

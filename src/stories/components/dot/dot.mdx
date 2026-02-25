@@ -1,0 +1,30 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
+import * as DotStories from "./dot.stories";
+
+<Meta of={DotStories} />
+
+# Dot
+
+Indicador visual circular usado para representar categorias ou status com cor. Recebe qualquer valor de cor válido.
+
+## Usage
+
+```tsx
+import Dot from "@/stories/components/dot";
+
+<Dot color="#277D78" />
+<Dot color="#F5C97A" />
+<Dot color="#826CB0" />
+```
+
+## Default
+
+Dot com a cor padrão do tema (verde).
+
+<Canvas of={DotStories.Default} />
+
+## All Colors
+
+Todas as cores disponíveis no design system com seus respectivos nomes.
+
+<Canvas of={DotStories.AllColors} />

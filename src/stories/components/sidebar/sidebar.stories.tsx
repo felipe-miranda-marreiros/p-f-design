@@ -66,7 +66,6 @@ const meta = {
 		layout: "fullscreen",
 		initialPath: "/dashboard",
 	},
-	tags: ["autodocs"],
 	decorators: [
 		(Story, context: StoryContext) => {
 			const initialPath: string =

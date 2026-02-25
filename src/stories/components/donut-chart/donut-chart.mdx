@@ -1,0 +1,53 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
+import * as DonutChartStories from "./donut-chart.stories";
+
+<Meta of={DonutChartStories} />
+
+# DonutChart
+
+Gráfico de rosca SVG para visualizar distribuição de valores por categoria. Suporta tamanho customizado, texto central e múltiplos segmentos com cores do design system.
+
+## Usage
+
+```tsx
+import { DonutChart } from "@/stories/components/donut-chart";
+
+<DonutChart
+  segments={[
+    { value: 338, color: "#277D78", label: "Entertainment" },
+    { value: 150, color: "#82C9D7", label: "Bills" },
+    { value: 200, color: "#F2CDAC", label: "Dining" },
+  ]}
+  centerText={{ main: "$338", sub: "of $975 limit" }}
+/>
+```
+
+## Default
+
+Gráfico com 4 segmentos e texto central representando orçamento.
+
+<Canvas of={DonutChartStories.Default} />
+
+## Single Segment
+
+Um único segmento ocupando 100% do gráfico.
+
+<Canvas of={DonutChartStories.SingleSegment} />
+
+## Two Segments
+
+Dois segmentos: valor usado e valor restante.
+
+<Canvas of={DonutChartStories.TwoSegments} />
+
+## Custom Size
+
+Três tamanhos lado a lado: 160px, 240px (padrão) e 320px.
+
+<Canvas of={DonutChartStories.CustomSize} />
+
+## All Colors
+
+Todos os 7 segmentos com as cores do tema do design system.
+
+<Canvas of={DonutChartStories.AllColors} />

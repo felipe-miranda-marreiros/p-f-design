@@ -1,0 +1,76 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
+import * as LoadingStories from "./loading.stories";
+
+<Meta of={LoadingStories} />
+
+# Loading
+
+Sistema de loading com 6 variantes para diferentes contextos: overlay global, transição de MFE, skeleton cards, section loader, inline loaders e skeleton de página completa.
+
+## Usage
+
+```tsx
+import { GlobalOverlay } from "./global-overlay.view";
+import { InlineLoader } from "./inline-loader.view";
+import { SkeletonCards } from "./skeleton-cards.view";
+import { SectionLoader } from "./section-loader.view";
+import { PageSkeleton } from "./page-skeleton.view";
+import { MfeTransition } from "./mfe-transition.view";
+
+// Overlay global durante carregamento de rota
+<GlobalOverlay />
+
+// Inline para botões ou campos
+<InlineLoader variant="bars" label="Atualizando saldo" />
+
+// Cards skeleton para listas
+<SkeletonCards count={4} columns={2} />
+```
+
+## Global Overlay
+
+Cobre toda a tela durante carregamento de rotas ou inicialização do MFE.
+
+<Canvas of={LoadingStories.GlobalOverlayStory} />
+
+## MFE Transition
+
+Transição animada entre micro-front-ends com blocos representando módulos sendo montados.
+
+<Canvas of={LoadingStories.MfeTransitionStory} />
+
+## Skeleton Cards
+
+Placeholders que espelham o layout real dos cards com efeito shimmer.
+
+<Canvas of={LoadingStories.SkeletonCardsStory} />
+
+## Section Loader
+
+Loader para regiões específicas da página enquanto dados são carregados.
+
+<Canvas of={LoadingStories.SectionLoaderStory} />
+
+## Inline Loader — Bars
+
+Micro-animação de barras para botões ou campos pequenos.
+
+<Canvas of={LoadingStories.InlineLoaderBars} />
+
+## Inline Loader — Dots
+
+Micro-animação de pontos para ações inline.
+
+<Canvas of={LoadingStories.InlineLoaderDots} />
+
+## Page Skeleton
+
+Skeleton completo da página com sidebar antes dos dados carregarem.
+
+<Canvas of={LoadingStories.PageSkeletonStory} />
+
+## All Variants
+
+Visão geral de todas as variantes de loading lado a lado.
+
+<Canvas of={LoadingStories.AllVariants} />

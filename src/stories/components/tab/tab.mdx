@@ -1,0 +1,53 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
+import * as TabStories from "./tab.stories";
+
+<Meta of={TabStories} />
+
+# Tab
+
+Componente de navegação por abas composto por `Tabs`, `Tab`, `TabPanel` e o helper `tabA11yProps`. Integrado com MUI e estilizado conforme o design system.
+
+## Usage
+
+```tsx
+import { Tab, Tabs, TabPanel, tabA11yProps } from "@/stories/components/tab";
+
+const [value, setValue] = useState(0);
+
+<Tabs value={value} onChange={(_, v) => setValue(v as number)}>
+  <Tab label="Overview" icon={<HomeRounded />} iconPosition="start" {...tabA11yProps(0)} />
+  <Tab label="Budgets" icon={<PieChartRounded />} iconPosition="start" {...tabA11yProps(1)} />
+</Tabs>
+<TabPanel value={value} index={0}>Conteúdo overview</TabPanel>
+<TabPanel value={value} index={1}>Conteúdo budgets</TabPanel>
+```
+
+## Default
+
+Tab isolado no estado padrão não selecionado.
+
+<Canvas of={TabStories.Default} />
+
+## All States
+
+Estados possíveis: não selecionado, hover e selecionado.
+
+<Canvas of={TabStories.AllStates} />
+
+## Interactive
+
+Grupo de abas interativo com painel de conteúdo.
+
+<Canvas of={TabStories.Interactive} />
+
+## With Icons
+
+Abas com ícones à esquerda do label.
+
+<Canvas of={TabStories.WithIcons} />
+
+## Disabled
+
+Tab desabilitado dentro de um grupo de abas.
+
+<Canvas of={TabStories.Disabled} />
