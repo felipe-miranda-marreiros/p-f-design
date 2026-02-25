@@ -31,12 +31,7 @@ export function NavError({ message, minimized = false }: NavErrorProps) {
 			}}
 		>
 			<ErrorOutlineRounded fontSize="small" aria-hidden="true" />
-			<Typography
-				variant="body2"
-				color="error"
-				textAlign="center"
-				sx={{ opacity: 0.9 }}
-			>
+			<Typography variant="body2" color="grey.100" textAlign="center">
 				{message}
 			</Typography>
 		</Box>

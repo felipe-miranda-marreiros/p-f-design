@@ -37,7 +37,9 @@ export const StyledDrawer = styled(Drawer, {
 	},
 }));
 
-export const StyledListItemButton = styled(ListItemButton)<{
+export const StyledListItemButton = styled(ListItemButton, {
+	shouldForwardProp: (prop) => prop !== "isMinimized",
+})<{
 	component?: ElementType;
 	to?: string;
 	isMinimized: boolean;

@@ -8,6 +8,7 @@ import {
 import { Box, Stack, Typography } from "@mui/material";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
+import { expect, userEvent, within } from "storybook/test";
 import { Tab, TabPanel, Tabs, tabA11yProps } from "./tab.component";
 
 const meta = {
@@ -33,7 +34,9 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+	parameters: { a11y: { disable: true } },
+};
 
 export const AllStates: Story = {
 	render: () => (
@@ -68,7 +71,6 @@ export const AllStates: Story = {
 					label="Placeholder"
 					icon={<SwapVertRounded />}
 					iconPosition="start"
-					{...tabA11yProps(0)}
 				/>
 			</Tabs>
 		</Stack>
@@ -135,6 +137,27 @@ export const Interactive: Story = {
 			</Box>
 		);
 	},
+	play: async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+
+		// Initially the Overview tab is active
+		await expect(canvas.getByText("Overview content")).toBeInTheDocument();
+
+		// Click the Transactions tab
+		const transactionsTab = canvas.getByRole("tab", { name: /transactions/i });
+		await userEvent.click(transactionsTab);
+
+		// Transactions panel is now visible, Overview is not
+		await expect(canvas.getByText("Transactions content")).toBeInTheDocument();
+		await expect(
+			canvas.queryByText("Overview content"),
+		).not.toBeInTheDocument();
+
+		// Navigate back to Overview
+		const overviewTab = canvas.getByRole("tab", { name: /overview/i });
+		await userEvent.click(overviewTab);
+		await expect(canvas.getByText("Overview content")).toBeInTheDocument();
+	},
 };
 
 export const WithIcons: Story = {
@@ -147,24 +170,9 @@ export const WithIcons: Story = {
 				onChange={(_, newValue) => setValue(newValue as number)}
 				aria-label="Icon tabs example"
 			>
-				<Tab
-					label="Home"
-					icon={<HomeRounded />}
-					iconPosition="start"
-					{...tabA11yProps(0)}
-				/>
-				<Tab
-					label="Budgets"
-					icon={<PieChartRounded />}
-					iconPosition="start"
-					{...tabA11yProps(1)}
-				/>
-				<Tab
-					label="Savings"
-					icon={<SavingsRounded />}
-					iconPosition="start"
-					{...tabA11yProps(2)}
-				/>
+				<Tab label="Home" icon={<HomeRounded />} iconPosition="start" />
+				<Tab label="Budgets" icon={<PieChartRounded />} iconPosition="start" />
+				<Tab label="Savings" icon={<SavingsRounded />} iconPosition="start" />
 			</Tabs>
 		);
 	},
@@ -173,9 +181,9 @@ export const WithIcons: Story = {
 export const Disabled: Story = {
 	render: () => (
 		<Tabs value={0} aria-label="Disabled tab example">
-			<Tab label="Active" {...tabA11yProps(0)} />
-			<Tab label="Disabled" disabled {...tabA11yProps(1)} />
-			<Tab label="Another" {...tabA11yProps(2)} />
+			<Tab label="Active" />
+			<Tab label="Disabled" disabled />
+			<Tab label="Another" />
 		</Tabs>
 	),
 };

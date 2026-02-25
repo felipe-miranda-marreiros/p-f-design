@@ -1,4 +1,4 @@
-import { ListItemIcon, ListItemText } from "@mui/material";
+import { ListItem, ListItemIcon, ListItemText } from "@mui/material";
 import type { ElementType } from "react";
 import { Link, useMatch } from "react-router";
 import { StyledListItemButton, StyledTooltip } from "./sidebar.styles";
@@ -30,11 +30,13 @@ export function NavItem({ item, minimized }: NavItemProps) {
 
 	if (minimized) {
 		return (
-			<StyledTooltip title={item.label} placement="right">
-				{button}
-			</StyledTooltip>
+			<ListItem disablePadding>
+				<StyledTooltip title={item.label} placement="right">
+					{button}
+				</StyledTooltip>
+			</ListItem>
 		);
 	}
 
-	return button;
+	return <ListItem disablePadding>{button}</ListItem>;
 }

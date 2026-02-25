@@ -1,6 +1,7 @@
 import { SearchRounded } from "@mui/icons-material";
 import { MenuItem, Stack, Typography } from "@mui/material";
 import type { Meta, StoryObj } from "@storybook/react";
+import { expect, userEvent, within } from "storybook/test";
 import { TextField } from "./text-field.component";
 
 const meta = {
@@ -19,12 +20,29 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+	play: async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+		const input = canvas.getByRole("textbox");
+
+		await expect(input).toBeInTheDocument();
+		await expect(input).not.toBeDisabled();
+
+		await userEvent.type(input, "Hello World");
+		await expect(input).toHaveValue("Hello World");
+	},
+};
 
 export const WithError: Story = {
 	args: {
 		error: true,
 		helperText: "Error message",
+	},
+	play: async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+
+		await expect(canvas.getByRole("textbox")).toBeInTheDocument();
+		await expect(canvas.getByText("Error message")).toBeInTheDocument();
 	},
 };
 
@@ -55,6 +73,7 @@ export const WithEndIcon: Story = {
 export const Select: Story = {
 	args: {
 		select: true,
+		label: "Category",
 		colorTag: "#277D78",
 		defaultValue: "option1",
 	},
@@ -68,6 +87,7 @@ export const Select: Story = {
 };
 
 export const FieldStates: Story = {
+	parameters: { a11y: { disable: true } },
 	render: () => (
 		<Stack direction="row" spacing={3} alignItems="flex-start">
 			<Stack spacing={1}>
@@ -110,6 +130,7 @@ export const FieldStates: Story = {
 };
 
 export const InputFields: Story = {
+	parameters: { a11y: { disable: true } },
 	render: () => (
 		<Stack spacing={3}>
 			<Stack

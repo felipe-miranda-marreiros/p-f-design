@@ -21,6 +21,15 @@ export const decorators = [
 
 const preview: Preview = {
 	parameters: {
+		a11y: {
+			test: "error",
+			config: {
+				rules: [{ id: "color-contrast", enabled: true }],
+			},
+			options: {
+				runOnly: { type: "tag", values: ["wcag2a", "wcag2aa"] },
+			},
+		},
 		controls: {
 			matchers: {
 				color: /(background|color)$/i,

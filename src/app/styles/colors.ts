@@ -20,7 +20,7 @@ export const colors = {
 		yellow: "#F2CDAC",
 		cyan: "#82C9D7",
 		navy: "#626070",
-		red: "#C94736",
+		red: "#B03525",
 		purple: "#826CB0",
 	},
 	others: {

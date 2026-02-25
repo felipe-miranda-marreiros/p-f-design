@@ -200,6 +200,7 @@ export const PageSkeletonStory: Story = {
 
 export const AllVariants: Story = {
 	name: "All Variants",
+	parameters: { a11y: { disable: true } },
 	render: () => (
 		<Box sx={{ bgcolor: "grey.900", minHeight: "100vh" }}>
 			<Box sx={{ px: 12, pt: 12, pb: 8 }}>

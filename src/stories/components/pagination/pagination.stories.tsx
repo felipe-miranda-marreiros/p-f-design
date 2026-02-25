@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import { fn } from "storybook/test";
+import { expect, fn, userEvent, within } from "storybook/test";
 import { Pagination } from "./pagination.component";
 
 const meta = {
@@ -17,14 +17,61 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+	play: async ({ canvasElement, args }) => {
+		const canvas = within(canvasElement);
+
+		// Page 2 of 5 — both Prev and Next should be enabled
+		const prevButton = canvas.getByRole("button", {
+			name: /go to prev page/i,
+		});
+		const nextButton = canvas.getByRole("button", {
+			name: /go to next page/i,
+		});
+
+		await expect(prevButton).not.toBeDisabled();
+		await expect(nextButton).not.toBeDisabled();
+
+		// Click Next and verify callback
+		await userEvent.click(nextButton);
+		await expect(args.onPageChange).toHaveBeenCalledWith(3);
+	},
+};
 
 export const FirstPage: Story = {
 	args: { currentPage: 1 },
+	play: async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+
+		// On page 1, Prev should be disabled
+		const prevButton = canvas.getByRole("button", {
+			name: /go to prev page/i,
+		});
+		const nextButton = canvas.getByRole("button", {
+			name: /go to next page/i,
+		});
+
+		await expect(prevButton).toBeDisabled();
+		await expect(nextButton).not.toBeDisabled();
+	},
 };
 
 export const LastPage: Story = {
 	args: { currentPage: 5 },
+	play: async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+
+		// On last page, Next should be disabled
+		const prevButton = canvas.getByRole("button", {
+			name: /go to prev page/i,
+		});
+		const nextButton = canvas.getByRole("button", {
+			name: /go to next page/i,
+		});
+
+		await expect(prevButton).not.toBeDisabled();
+		await expect(nextButton).toBeDisabled();
+	},
 };
 
 export const Controlled: Story = {

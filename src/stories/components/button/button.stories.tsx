@@ -1,5 +1,6 @@
 import { Stack } from "@mui/material";
 import type { Meta, StoryObj } from "@storybook/react";
+import { expect, fn, userEvent, within } from "storybook/test";
 import { Button } from "./button.component";
 
 const meta = {
@@ -12,6 +13,7 @@ const meta = {
 		children: "Placeholder",
 		disabled: false,
 		loading: false,
+		onClick: fn(),
 	},
 	argTypes: {
 		variant: {
@@ -59,4 +61,38 @@ export const AllVariants: Story = {
 			</Stack>
 		</Stack>
 	),
+};
+
+export const ClickInteraction: Story = {
+	args: {
+		variant: "primary",
+		children: "Confirmar",
+	},
+	play: async ({ canvasElement, args }) => {
+		const canvas = within(canvasElement);
+		const button = canvas.getByRole("button", { name: /confirmar/i });
+
+		await expect(button).toBeInTheDocument();
+		await expect(button).not.toBeDisabled();
+
+		await userEvent.click(button);
+		await expect(args.onClick).toHaveBeenCalledOnce();
+	},
+};
+
+export const DisabledClick: Story = {
+	args: {
+		variant: "primary",
+		children: "Confirmar",
+		disabled: true,
+	},
+	play: async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+		const button = canvas.getByRole("button", { name: /confirmar/i });
+
+		// MUI disabled buttons have pointer-events: none — the browser itself
+		// prevents any pointer interaction, which is the expected behavior.
+		await expect(button).toBeDisabled();
+		await expect(button).toHaveAttribute("disabled");
+	},
 };

@@ -1,6 +1,7 @@
 import { MenuItem } from "@mui/material";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
+import { expect, userEvent, within } from "storybook/test";
 
 import { Button } from "../button/button.component";
 import { TextField } from "../text-field/text-field.component";
@@ -37,6 +38,25 @@ export const Empty: Story = {
 				</Modal>
 			</>
 		);
+	},
+	play: async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+		const body = within(document.body);
+
+		// Open the modal
+		const openButton = canvas.getByRole("button", { name: /open modal/i });
+		await userEvent.click(openButton);
+
+		// Verify modal content is visible (via portal in document.body)
+		const heading = await body.findByText("Add New Budget");
+		await expect(heading).toBeInTheDocument();
+
+		// Close via the X button
+		const closeButton = body.getByRole("button", { name: /close/i });
+		await userEvent.click(closeButton);
+
+		// Verify modal is dismissed
+		await expect(body.queryByText("Add New Budget")).not.toBeInTheDocument();
 	},
 };
 
@@ -94,5 +114,34 @@ export const AddNewBudget: Story = {
 				</Modal>
 			</>
 		);
+	},
+	play: async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+		const body = within(document.body);
+
+		// Open the modal
+		const openButton = canvas.getByRole("button", { name: /open modal/i });
+		await userEvent.click(openButton);
+
+		// Verify modal content is visible
+		const heading = await body.findByText("Add New Budget");
+		await expect(heading).toBeInTheDocument();
+
+		// Verify the description is present
+		await expect(
+			body.getByText(/choose a category to set a spending budget/i),
+		).toBeInTheDocument();
+
+		// Type in the Maximum Spend field
+		const spendInput = body.getByPlaceholderText("e.g. 2000");
+		await userEvent.type(spendInput, "1500");
+		await expect(spendInput).toHaveValue("1500");
+
+		// Close via the X button
+		const closeButton = body.getByRole("button", { name: /close/i });
+		await userEvent.click(closeButton);
+
+		// Verify modal is dismissed
+		await expect(body.queryByText("Add New Budget")).not.toBeInTheDocument();
 	},
 };

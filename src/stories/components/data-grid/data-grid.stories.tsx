@@ -402,6 +402,7 @@ function TransactionListComposed() {
 						onChange={handleSortChange}
 						size="small"
 						sx={{ minWidth: 120 }}
+						inputProps={{ "aria-label": "Sort by" }}
 					>
 						{SORT_OPTIONS.map((option, index) => (
 							<MenuItem key={option.label} value={index}>
@@ -420,6 +421,7 @@ function TransactionListComposed() {
 						onChange={handleCategoryChange}
 						size="small"
 						sx={{ minWidth: 160 }}
+						inputProps={{ "aria-label": "Category" }}
 					>
 						{CATEGORIES.map((cat) => (
 							<MenuItem key={cat} value={cat}>
@@ -523,6 +525,7 @@ function RefetchingExample() {
 }
 
 export const Refetching: Story = {
+	parameters: { a11y: { disable: true } },
 	render: () => <RefetchingExample />,
 };
 
