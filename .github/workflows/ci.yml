@@ -73,7 +73,7 @@ jobs:
           key: turbo-build-${{ runner.os }}-${{ hashFiles('**/src/**', '**/tsup.config.ts', '**/tsconfig.json') }}
           restore-keys: |
             turbo-build-${{ runner.os }}-
-      - run: pnpm build:packages
+      - run: pnpm run build:packages
 
   storybook:
     name: Storybook Tests
