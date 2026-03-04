@@ -129,7 +129,7 @@ jobs:
         with:
           node-version: 20
       - run: pnpm install --frozen-lockfile
-      - run: pnpm build:packages
+      - run: pnpm run build:packages
       - name: Save base bundle sizes
         run: |
           echo "STYLES_BASE=$(du -sb packages/styles/dist | cut -f1)" >> $GITHUB_ENV
