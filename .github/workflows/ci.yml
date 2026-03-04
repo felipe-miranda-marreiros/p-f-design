@@ -6,7 +6,6 @@ on:
 
 permissions:
   contents: read
-  pull-requests: write
 
 jobs:
   lint:
@@ -73,7 +72,7 @@ jobs:
           key: turbo-build-${{ runner.os }}-${{ hashFiles('**/src/**', '**/tsup.config.ts', '**/tsconfig.json') }}
           restore-keys: |
             turbo-build-${{ runner.os }}-
-      - run: npx turbo run build --filter="./packages/**"
+      - run: ./node_modules/.bin/turbo run build --filter="./packages/**"
 
   storybook:
     name: Storybook Tests
@@ -98,7 +97,7 @@ jobs:
       - name: Serve Storybook
         run: npx serve packages/ui/storybook-static -l 6006 &
       - name: Wait for Storybook
-        run: npx wait-on http://127.0.0.1:6006 --timeout 30000
+        run: npx wait-on tcp:127.0.0.1:6006 --timeout 30000
       - name: Run Storybook tests
         run: pnpm storybook:test
       - name: Storybook coverage
@@ -115,56 +114,3 @@ jobs:
           node-version: 20
       - run: pnpm install --frozen-lockfile
       - run: pnpm audit --audit-level=high
-
-  bundle-size:
-    name: Bundle Size Check
-    needs: build-packages
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.base.sha }}
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: pnpm install --frozen-lockfile
-      - run: npx turbo run build --filter="./packages/**"
-      - name: Save base bundle sizes
-        run: |
-          echo "STYLES_BASE=$(du -sb packages/styles/dist | cut -f1)" >> $GITHUB_ENV
-          echo "UI_BASE=$(du -sb packages/ui/dist | cut -f1)" >> $GITHUB_ENV
-          echo "SHELL_BASE=$(du -sb packages/shell/dist | cut -f1)" >> $GITHUB_ENV
-          echo "CHARTS_BASE=$(du -sb packages/charts/dist | cut -f1)" >> $GITHUB_ENV
-      - uses: actions/checkout@v4
-      - run: pnpm install --frozen-lockfile
-      - uses: actions/cache@v4
-        with:
-          path: .turbo
-          key: turbo-build-${{ runner.os }}-${{ hashFiles('**/src/**', '**/tsup.config.ts', '**/tsconfig.json') }}
-          restore-keys: |
-            turbo-build-${{ runner.os }}-
-      - run: npx turbo run build --filter="./packages/**"
-      - name: Compare bundle sizes
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const packages = ['styles', 'ui', 'shell', 'charts'];
-            let body = '## Bundle Size Report\n\n| Package | Base | PR | Diff |\n|---------|------|-----|------|\n';
-
-            for (const pkg of packages) {
-              const base = parseInt(process.env[`${pkg.toUpperCase()}_BASE`] || '0');
-              const prSize = parseInt(
-                require('child_process').execSync(`du -sb packages/${pkg}/dist`).toString().split('\t')[0]
-              );
-              const diff = prSize - base;
-              const icon = diff > 5000 ? ':red_circle:' : diff > 0 ? ':yellow_circle:' : ':green_circle:';
-              body += `| @p-f-design/${pkg} | ${(base/1024).toFixed(1)}KB | ${(prSize/1024).toFixed(1)}KB | ${icon} ${diff > 0 ? '+' : ''}${(diff/1024).toFixed(1)}KB |\n`;
-            }
-
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              body
-            });

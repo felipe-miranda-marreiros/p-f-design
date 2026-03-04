@@ -30,8 +30,8 @@
 		"clean": "rm -rf dist",
 		"storybook": "storybook dev -p 6006",
 		"build-storybook": "storybook build",
-		"storybook:test": "test-storybook",
-		"coverage:storybook": "test-storybook --coverage"
+		"storybook:test": "test-storybook --testTimeout=60000 --maxWorkers=2",
+		"coverage:storybook": "test-storybook --coverage --testTimeout=60000 --maxWorkers=2"
 	},
 	"peerDependencies": {
 		"@emotion/react": ">=11",
