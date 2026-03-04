@@ -5,7 +5,7 @@ pre-commit:
       glob: "*.{js,jsx,ts,tsx,json}"
       run: pnpm biome check --write --no-errors-on-unmatched {staged_files}
     typecheck:
-      run: pnpm exec tsc --noEmit --skipLibCheck
+      run: pnpm typecheck
 
 commit-msg:
   commands:

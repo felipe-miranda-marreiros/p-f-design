@@ -1,0 +1,71 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
+import * as DataGridStories from "./data-grid.stories";
+
+<Meta of={DataGridStories} />
+
+# DataGrid
+
+Tabela de dados baseada em TanStack Table com suporte a ordenação, paginação, filtro global e linha mobile customizada. Integra com `Paper` e `Pagination` para composição completa.
+
+## Usage
+
+```tsx
+import { DataGrid } from ".";
+import { useReactTable, getCoreRowModel } from "@tanstack/react-table";
+
+const table = useReactTable({
+  data,
+  columns,
+  getCoreRowModel: getCoreRowModel(),
+});
+
+<DataGrid table={table} aria-label="Transactions" />
+
+// Com status de loading
+<DataGrid table={table} status="loading" aria-label="Loading" />
+
+// Com linha mobile customizada
+<DataGrid table={table} renderMobileRow={(row) => <MyMobileRow row={row.original} />} />
+```
+
+## Transaction List
+
+Lista completa com busca, ordenação, filtro por categoria e paginação.
+
+<Canvas of={DataGridStories.TransactionList} />
+
+## Simple Table
+
+Tabela básica sem controles adicionais.
+
+<Canvas of={DataGridStories.SimpleTable} />
+
+## Loading
+
+Estado de carregamento com skeleton nas linhas.
+
+<Canvas of={DataGridStories.Loading} />
+
+## Refetching
+
+Dados visíveis com indicador de atualização em background.
+
+<Canvas of={DataGridStories.Refetching} />
+
+## Error State
+
+Slot de erro customizado renderizado quando `status="error"`.
+
+<Canvas of={DataGridStories.ErrorState} />
+
+## Empty
+
+Slot de estado vazio quando não há dados.
+
+<Canvas of={DataGridStories.Empty} />
+
+## Mobile
+
+Layout mobile com linha customizada e controles compactos.
+
+<Canvas of={DataGridStories.Mobile} />

@@ -20,5 +20,12 @@ coverage/
 *storybook.log
 storybook-static
 
+# Turborepo
+.turbo
+
+# Env
+.env
+.npmrc
+
 # Misc
 .claude

@@ -1,0 +1,64 @@
+{
+	"name": "@p-f-design/web",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "rsbuild build",
+		"dev": "rsbuild dev --open",
+		"preview": "rsbuild preview",
+		"typecheck": "tsc --noEmit --skipLibCheck",
+		"test:ui": "vitest --ui",
+		"test": "vitest run",
+		"coverage": "vitest run --coverage"
+	},
+	"dependencies": {
+		"@emotion/react": "^11.14.0",
+		"@emotion/styled": "^11.14.1",
+		"@fontsource/material-icons": "^5.2.7",
+		"@fontsource/public-sans": "^5.2.7",
+		"@mui/icons-material": "^7.3.8",
+		"@mui/material": "^7.3.8",
+		"@p-f-design/charts": "workspace:*",
+		"@p-f-design/shell": "workspace:*",
+		"@p-f-design/styles": "workspace:*",
+		"@p-f-design/ui": "workspace:*",
+		"@tanstack/react-query": "^5.90.21",
+		"@tanstack/react-query-devtools": "^5.91.3",
+		"@tanstack/react-table": "^8.21.3",
+		"axios": "^1.13.5",
+		"dayjs": "^1.11.19",
+		"i18next": "^25.8.7",
+		"i18next-browser-languagedetector": "^8.2.1",
+		"nuqs": "^2.8.8",
+		"react": "^19.2.4",
+		"react-dom": "^19.2.4",
+		"react-error-boundary": "^6.1.1",
+		"react-hook-form": "^7.71.1",
+		"react-i18next": "^16.5.4",
+		"react-router": "^7.13.0",
+		"zod": "^4.3.6",
+		"zustand": "^5.0.11"
+	},
+	"devDependencies": {
+		"@playwright/test": "^1.58.2",
+		"@rsbuild/core": "^1.7.3",
+		"@rsbuild/plugin-react": "^1.4.5",
+		"@testing-library/jest-dom": "^6.9.1",
+		"@testing-library/react": "^16.3.2",
+		"@testing-library/user-event": "^14.6.1",
+		"@types/react": "^19.2.14",
+		"@types/react-dom": "^19.2.3",
+		"@vitejs/plugin-react": "^5.1.4",
+		"@vitest/coverage-v8": "4.0.17",
+		"@vitest/ui": "^4.0.18",
+		"happy-dom": "^20.6.1",
+		"msw": "^2.12.10",
+		"vitest": "^4.0.18"
+	},
+	"msw": {
+		"workerDirectory": [
+			"public"
+		]
+	}
+}

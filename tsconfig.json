@@ -8,7 +8,7 @@
 		"useDefineForClassFields": true,
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
-		"baseUrl": ".",
+
 		/* modules */
 		"module": "ESNext",
 		"moduleDetection": "force",
@@ -17,17 +17,15 @@
 		"resolveJsonModule": true,
 		"allowImportingTsExtensions": true,
 		"noUncheckedSideEffectImports": true,
+		"isolatedModules": true,
 
 		/* type checking */
 		"strict": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 
-		"types": ["vitest/globals", "@testing-library/jest-dom"],
-		"paths": {
-			"@/*": ["./src/*"]
-		}
-	},
-	"include": ["src/**/*"],
-	"exclude": ["node_modules"]
+		/* declarations */
+		"declaration": true,
+		"declarationMap": true
+	}
 }
