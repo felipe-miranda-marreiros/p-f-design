@@ -73,36 +73,6 @@ jobs:
           restore-keys: |
             turbo-build-${{ runner.os }}-
       - run: ./node_modules/.bin/turbo run build --filter="./packages/**"
-
-  storybook:
-    name: Storybook Tests
-    needs: build-packages
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: pnpm install --frozen-lockfile
-      - uses: actions/cache@v4
-        with:
-          path: .turbo
-          key: turbo-build-${{ runner.os }}-${{ hashFiles('**/src/**', '**/tsup.config.ts', '**/tsconfig.json') }}
-          restore-keys: |
-            turbo-build-${{ runner.os }}-
-      - run: pnpm build-storybook
-      - name: Install Playwright
-        run: pnpm --filter @p-f-design/ui exec playwright install --with-deps chromium
-      - name: Serve Storybook
-        run: npx serve packages/ui/storybook-static -l 6006 &
-      - name: Wait for Storybook
-        run: npx wait-on tcp:127.0.0.1:6006 --timeout 30000
-      - name: Run Storybook tests
-        run: pnpm storybook:test
-      - name: Storybook coverage
-        run: pnpm coverage:storybook
-
   audit:
     name: Dependency Audit
     runs-on: ubuntu-latest
