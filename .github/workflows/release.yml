@@ -56,7 +56,7 @@ jobs:
         run: pnpm exec semantic-release
 
   release-shell:
-    needs: release-styles
+    needs: release-ui
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -79,7 +79,7 @@ jobs:
         run: pnpm exec semantic-release
 
   release-charts:
-    needs: release-styles
+    needs: release-shell
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
