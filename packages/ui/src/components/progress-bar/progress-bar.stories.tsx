@@ -1,5 +1,5 @@
+import { colors } from "@felipe-miranda-marreiros/styles";
 import { Box, Stack, Typography } from "@mui/material";
-import { colors } from "@p-f-design/styles";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ProgressBar } from "./progress-bar.component";
 

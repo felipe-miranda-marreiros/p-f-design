@@ -1,5 +1,5 @@
+import { theme } from "@felipe-miranda-marreiros/styles";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { theme } from "@p-f-design/styles";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Suspense } from "react";

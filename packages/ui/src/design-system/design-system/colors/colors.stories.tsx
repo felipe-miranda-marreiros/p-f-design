@@ -1,5 +1,5 @@
+import { colors, theme } from "@felipe-miranda-marreiros/styles";
 import { Box, Divider, Grid, Typography } from "@mui/material";
-import { colors, theme } from "@p-f-design/styles";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ColorSwatch } from "../foundations/color-swatch";
 

@@ -14,7 +14,7 @@ export default defineConfig({
 		"@mui/system",
 		"@emotion/react",
 		"@emotion/styled",
-		"@p-f-design/styles",
+		"@felipe-miranda-marreiros/styles",
 		"@tanstack/react-table",
 	],
 });

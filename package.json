@@ -3,7 +3,7 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"dev": "pnpm --filter @p-f-design/web dev",
+		"dev": "pnpm --filter @felipe-miranda-marreiros/web dev",
 		"build": "turbo run build",
 		"build:packages": "turbo run build --filter=\"./packages/**\"",
 		"lint": "biome check .",
@@ -12,10 +12,10 @@
 		"typecheck": "turbo run typecheck",
 		"test": "turbo run test",
 		"clean": "turbo run clean",
-		"storybook": "pnpm --filter @p-f-design/ui storybook",
-		"build-storybook": "turbo run build-storybook --filter=@p-f-design/ui",
-		"storybook:test": "pnpm --filter @p-f-design/ui storybook:test",
-		"coverage:storybook": "pnpm --filter @p-f-design/ui coverage:storybook",
+		"storybook": "pnpm --filter @felipe-miranda-marreiros/ui storybook",
+		"build-storybook": "turbo run build-storybook --filter=@felipe-miranda-marreiros/ui",
+		"storybook:test": "pnpm --filter @felipe-miranda-marreiros/ui storybook:test",
+		"coverage:storybook": "pnpm --filter @felipe-miranda-marreiros/ui coverage:storybook",
 		"prepare": "lefthook install"
 	},
 	"devDependencies": {
