@@ -22,7 +22,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/p-f-design/p-f-design.git"
+		"url": "https://github.com/felipe-miranda-marreiros/p-f-design.git"
 	},
 	"scripts": {
 		"build": "tsup",
