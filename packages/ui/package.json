@@ -1,5 +1,5 @@
 {
-	"name": "@p-f-design/ui",
+	"name": "@felipe-miranda-marreiros/ui",
 	"version": "1.0.0",
 	"type": "module",
 	"sideEffects": false,
@@ -38,7 +38,7 @@
 		"@emotion/styled": ">=11",
 		"@mui/icons-material": ">=7",
 		"@mui/material": ">=7",
-		"@p-f-design/styles": ">=1",
+		"@felipe-miranda-marreiros/styles": ">=1",
 		"@tanstack/react-table": ">=8",
 		"react": ">=18",
 		"react-dom": ">=18"
@@ -51,7 +51,7 @@
 		"@mui/icons-material": "^7.3.8",
 		"@mui/material": "^7.3.8",
 		"@mui/system": "^7.3.8",
-		"@p-f-design/styles": "workspace:*",
+		"@felipe-miranda-marreiros/styles": "workspace:*",
 		"@playwright/test": "^1.58.2",
 		"@storybook/addon-a11y": "^10.2.8",
 		"@storybook/addon-coverage": "^3.0.0",

@@ -1,5 +1,5 @@
+import type { DesignColor } from "@felipe-miranda-marreiros/styles";
 import { Box, Typography } from "@mui/material";
-import type { DesignColor } from "@p-f-design/styles";
 import {
 	ProgressBarFill,
 	ProgressBarSegments,

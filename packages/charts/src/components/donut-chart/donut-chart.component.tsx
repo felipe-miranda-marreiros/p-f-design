@@ -1,5 +1,5 @@
+import { colors } from "@felipe-miranda-marreiros/styles";
 import { Box, Typography } from "@mui/material";
-import { colors } from "@p-f-design/styles";
 import { buildArcs, type DonutChartSegment } from "./donut-chart.utils";
 
 export interface DonutChartProps {

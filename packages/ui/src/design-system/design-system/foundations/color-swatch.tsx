@@ -1,5 +1,5 @@
+import { colors } from "@felipe-miranda-marreiros/styles";
 import { Box, Paper, Stack, Typography } from "@mui/material";
-import { colors } from "@p-f-design/styles";
 import { useState } from "react";
 
 interface ColorSwatchProps {

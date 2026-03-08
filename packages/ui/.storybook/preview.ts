@@ -1,5 +1,5 @@
+import { theme } from "@felipe-miranda-marreiros/styles";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { theme } from "@p-f-design/styles";
 import { withThemeFromJSXProvider } from "@storybook/addon-themes";
 import type { Preview } from "storybook-react-rsbuild";
 

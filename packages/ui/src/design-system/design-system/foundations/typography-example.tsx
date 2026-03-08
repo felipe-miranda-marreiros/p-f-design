@@ -1,3 +1,4 @@
+import { theme } from "@felipe-miranda-marreiros/styles";
 import {
 	Box,
 	Paper,
@@ -9,7 +10,6 @@ import {
 	Typography,
 	type TypographyProps,
 } from "@mui/material";
-import { theme } from "@p-f-design/styles";
 
 interface TypographyExampleProps {
 	variant: TypographyProps["variant"];

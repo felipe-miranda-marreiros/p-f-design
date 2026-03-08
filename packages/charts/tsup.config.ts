@@ -12,6 +12,6 @@ export default defineConfig({
 		"@mui/material",
 		"@emotion/react",
 		"@emotion/styled",
-		"@p-f-design/styles",
+		"@felipe-miranda-marreiros/styles",
 	],
 });
