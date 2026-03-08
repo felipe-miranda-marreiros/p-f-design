@@ -46,6 +46,7 @@ jobs:
           node-version: 20
           registry-url: "https://npm.pkg.github.com"
       - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @felipe-miranda-marreiros/styles build
       - run: pnpm --filter @felipe-miranda-marreiros/ui build
       - name: Release ui
         working-directory: packages/ui
@@ -68,6 +69,7 @@ jobs:
           node-version: 20
           registry-url: "https://npm.pkg.github.com"
       - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @felipe-miranda-marreiros/styles build
       - run: pnpm --filter @felipe-miranda-marreiros/shell build
       - name: Release shell
         working-directory: packages/shell
@@ -90,6 +92,7 @@ jobs:
           node-version: 20
           registry-url: "https://npm.pkg.github.com"
       - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @felipe-miranda-marreiros/styles build
       - run: pnpm --filter @felipe-miranda-marreiros/charts build
       - name: Release charts
         working-directory: packages/charts
