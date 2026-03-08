@@ -1,0 +1,17 @@
+{
+	"extends": "../../tsconfig.json",
+	"compilerOptions": {
+		"preserveSymlinks": true,
+		"baseUrl": ".",
+		"paths": {
+			"@mui/system": ["./node_modules/@mui/system"],
+			"@mui/system/*": ["./node_modules/@mui/system/*"],
+			"@emotion/styled": ["./node_modules/@emotion/styled"],
+			"@emotion/styled/*": ["./node_modules/@emotion/styled/*"],
+			"@emotion/react": ["./node_modules/@emotion/react"],
+			"@emotion/react/*": ["./node_modules/@emotion/react/*"]
+		}
+	},
+	"include": ["src/**/*"],
+	"exclude": ["**/*.stories.tsx", "**/*.mdx"]
+}

@@ -1,0 +1,36 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
+import * as ModalStories from "./modal.stories";
+
+<Meta of={ModalStories} />
+
+# Modal
+
+Diálogo modal composto por `Modal`, `ModalHeader`, `ModalBody` e `ModalFooter`. O header aceita título, descrição e botão de fechar. Controlado externamente via prop `open`.
+
+## Usage
+
+```tsx
+import { Modal, ModalHeader, ModalBody, ModalFooter } from ".";
+
+const [open, setOpen] = useState(false);
+
+<Modal open={open} onClose={() => setOpen(false)}>
+  <ModalHeader onClose={() => setOpen(false)}>Título</ModalHeader>
+  <ModalBody>Conteúdo do modal</ModalBody>
+  <ModalFooter>
+    <Button variant="primary" fullWidth>Confirmar</Button>
+  </ModalFooter>
+</Modal>
+```
+
+## Empty
+
+Modal com apenas o header e botão de fechar.
+
+<Canvas of={ModalStories.Empty} />
+
+## Add New Budget
+
+Modal completo com header, body com campos de formulário e footer com botão de ação.
+
+<Canvas of={ModalStories.AddNewBudget} />

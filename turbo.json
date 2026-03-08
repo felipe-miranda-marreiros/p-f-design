@@ -1,0 +1,33 @@
+{
+	"$schema": "https://turbo.build/schema.json",
+	"tasks": {
+		"build": {
+			"dependsOn": ["^build"],
+			"inputs": [
+				"src/**",
+				"tsup.config.ts",
+				"tsconfig.json",
+				"rsbuild.config.ts"
+			],
+			"outputs": ["dist/**"]
+		},
+		"typecheck": {
+			"dependsOn": ["^build"],
+			"inputs": ["src/**", "tsconfig.json"],
+			"outputs": []
+		},
+		"test": {
+			"dependsOn": ["^build"],
+			"inputs": ["src/**", "tsconfig.json", "vitest.config.ts"],
+			"outputs": []
+		},
+		"clean": {
+			"cache": false
+		},
+		"build-storybook": {
+			"dependsOn": ["^build"],
+			"inputs": ["src/**", ".storybook/**", "tsconfig.json"],
+			"outputs": ["storybook-static/**"]
+		}
+	}
+}

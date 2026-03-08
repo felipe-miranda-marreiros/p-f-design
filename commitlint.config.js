@@ -18,6 +18,11 @@ export default {
 				"revert",
 			],
 		],
+		"scope-enum": [
+			1,
+			"always",
+			["ui", "shell", "charts", "styles", "web", "root"],
+		],
 		"subject-case": [2, "never", ["upper-case"]],
 	},
 };
