@@ -19,10 +19,11 @@ export default {
 			],
 		],
 		"scope-enum": [
-			1,
+			2,
 			"always",
 			["ui", "shell", "charts", "styles", "web", "root"],
 		],
+		"scope-empty": [2, "never"],
 		"subject-case": [2, "never", ["upper-case"]],
 	},
 };
