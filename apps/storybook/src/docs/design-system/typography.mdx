@@ -1,0 +1,45 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import * as TypographyStories from "../../stories/design-system/typography.stories";
+
+<Meta of={TypographyStories} />
+
+# Typography
+
+Our typography system uses **Public Sans** as the primary font family with 7 carefully crafted variants.
+
+## Font Weights Available
+
+- 300 (Light)
+- 400 (Regular)
+- 500 (Medium)
+- 700 (Bold)
+
+## Headings
+
+<Canvas>
+  <Story of={TypographyStories.Headings} />
+</Canvas>
+
+---
+
+## Body Text
+
+<Canvas>
+  <Story of={TypographyStories.BodyText} />
+</Canvas>
+
+---
+
+## Subtitles
+
+<Canvas>
+  <Story of={TypographyStories.Subtitles} />
+</Canvas>
+
+---
+
+## Content Hierarchy Example
+
+<Canvas>
+  <Story of={TypographyStories.ContentHierarchy} />
+</Canvas>

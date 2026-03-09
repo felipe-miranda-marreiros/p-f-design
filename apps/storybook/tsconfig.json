@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"target": "ES2020",
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"jsx": "react-jsx",
+		"strict": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"noEmit": true,
+		"paths": {
+			"@ui/*": ["../../packages/ui/src/*"],
+			"@shell/*": ["../../packages/shell/src/*"],
+			"@charts/*": ["../../packages/charts/src/*"]
+		}
+	},
+	"include": [".storybook/**/*", "src/**/*"],
+	"exclude": ["node_modules", "storybook-static"]
+}

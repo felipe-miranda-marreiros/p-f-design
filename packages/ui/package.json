@@ -27,11 +27,7 @@
 	"scripts": {
 		"build": "tsup",
 		"typecheck": "tsc --noEmit",
-		"clean": "rm -rf dist",
-		"storybook": "storybook dev -p 6006",
-		"build-storybook": "storybook build",
-		"storybook:test": "test-storybook --testTimeout=60000 --maxWorkers=2",
-		"coverage:storybook": "test-storybook --coverage --testTimeout=60000 --maxWorkers=2"
+		"clean": "rm -rf dist"
 	},
 	"peerDependencies": {
 		"@emotion/react": ">=11",
@@ -46,19 +42,10 @@
 	"devDependencies": {
 		"@emotion/react": "^11.14.0",
 		"@emotion/styled": "^11.14.1",
-		"@fontsource/material-icons": "^5.2.7",
-		"@fontsource/public-sans": "^5.2.7",
+		"@felipe-miranda-marreiros/styles": "workspace:*",
 		"@mui/icons-material": "^7.3.8",
 		"@mui/material": "^7.3.8",
 		"@mui/system": "^7.3.8",
-		"@felipe-miranda-marreiros/styles": "workspace:*",
-		"@playwright/test": "^1.58.2",
-		"@storybook/addon-a11y": "^10.2.8",
-		"@storybook/addon-coverage": "^3.0.0",
-		"@storybook/addon-docs": "^10.2.8",
-		"@storybook/addon-themes": "^10.2.8",
-		"@storybook/react": "^10.2.8",
-		"@storybook/test-runner": "^0.24.2",
 		"@tanstack/react-table": "^8.21.3",
 		"@tanstack/table-core": "^8.21.3",
 		"@types/react": "^19.2.14",
@@ -66,8 +53,6 @@
 		"dayjs": "^1.11.19",
 		"react": "^19.2.4",
 		"react-dom": "^19.2.4",
-		"storybook": "^10.2.8",
-		"storybook-react-rsbuild": "^3.2.2",
 		"tsup": "^8.0.0",
 		"typescript": "^5.9.3"
 	}

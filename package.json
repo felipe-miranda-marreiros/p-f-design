@@ -12,10 +12,10 @@
 		"typecheck": "turbo run typecheck",
 		"test": "turbo run test",
 		"clean": "turbo run clean",
-		"storybook": "pnpm --filter @felipe-miranda-marreiros/ui storybook",
-		"build-storybook": "turbo run build-storybook --filter=@felipe-miranda-marreiros/ui",
-		"storybook:test": "pnpm --filter @felipe-miranda-marreiros/ui storybook:test",
-		"coverage:storybook": "pnpm --filter @felipe-miranda-marreiros/ui coverage:storybook",
+		"storybook": "pnpm --filter @felipe-miranda-marreiros/storybook dev",
+		"build-storybook": "turbo run build --filter=@felipe-miranda-marreiros/storybook",
+		"storybook:test": "pnpm --filter @felipe-miranda-marreiros/storybook test",
+		"coverage:storybook": "pnpm --filter @felipe-miranda-marreiros/storybook coverage",
 		"prepare": "lefthook install"
 	},
 	"devDependencies": {
@@ -24,10 +24,10 @@
 		"@commitlint/config-conventional": "^20.4.3",
 		"@semantic-release/changelog": "^6.0.3",
 		"@semantic-release/git": "^10.0.1",
-		"lefthook": "^2.1.2",
+		"lefthook": "^2.1.3",
 		"semantic-release": "^24.2.9",
 		"semantic-release-monorepo": "^8.0.2",
-		"turbo": "^2.8.13",
+		"turbo": "^2.8.14",
 		"typescript": "^5.9.3"
 	},
 	"pnpm": {

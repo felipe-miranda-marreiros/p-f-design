@@ -1,0 +1,64 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
+import * as PaginationStories from "../../stories/ui/pagination.stories";
+
+<Meta of={PaginationStories} />
+
+# Pagination
+
+Componente de paginação controlado externamente. Recebe `currentPage`, `totalPages` e `onPageChange`. Suporta ellipsis automático para muitas páginas e é responsivo para mobile.
+
+## Usage
+
+```tsx
+import { Pagination } from ".";
+
+const [page, setPage] = useState(1);
+
+<Pagination
+  currentPage={page}
+  totalPages={10}
+  onPageChange={setPage}
+/>
+```
+
+## Default
+
+Paginação com página 2 de 5 selecionada.
+
+<Canvas of={PaginationStories.Default} />
+
+## First Page
+
+Botão "anterior" desabilitado quando na primeira página.
+
+<Canvas of={PaginationStories.FirstPage} />
+
+## Last Page
+
+Botão "próximo" desabilitado quando na última página.
+
+<Canvas of={PaginationStories.LastPage} />
+
+## Controlled
+
+Paginação interativa com estado React interno.
+
+<Canvas of={PaginationStories.Controlled} />
+
+## With Ellipsis
+
+Ellipsis automático quando há muitas páginas — página 5 de 10.
+
+<Canvas of={PaginationStories.WithEllipsis} />
+
+## With Ellipsis — Many Pages
+
+20 páginas com controle interativo de navegação.
+
+<Canvas of={PaginationStories.WithEllipsisManyPages} />
+
+## Mobile
+
+Visualização adaptada para telas pequenas.
+
+<Canvas of={PaginationStories.Mobile} />

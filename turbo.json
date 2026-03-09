@@ -3,12 +3,7 @@
 	"tasks": {
 		"build": {
 			"dependsOn": ["^build"],
-			"inputs": [
-				"src/**",
-				"tsup.config.ts",
-				"tsconfig.json",
-				"rsbuild.config.ts"
-			],
+			"inputs": ["$TURBO_DEFAULT$", "!**/*.stories.{tsx,jsx,mdx}", "!**/*.mdx"],
 			"outputs": ["dist/**"]
 		},
 		"typecheck": {
@@ -23,11 +18,6 @@
 		},
 		"clean": {
 			"cache": false
-		},
-		"build-storybook": {
-			"dependsOn": ["^build"],
-			"inputs": ["src/**", ".storybook/**", "tsconfig.json"],
-			"outputs": ["storybook-static/**"]
 		}
 	}
 }

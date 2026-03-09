@@ -1,0 +1,69 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
+import * as SidebarStories from "../../stories/shell/sidebar.stories";
+
+<Meta of={SidebarStories} />
+
+# Sidebar
+
+Navegação lateral responsiva com suporte a minimização, estados de loading/error, e itens configuráveis. Adapta automaticamente entre desktop e mobile.
+
+## Usage
+
+```tsx
+import { Sidebar, type SidebarNavItem } from ".";
+
+const items: SidebarNavItem[] = [
+  { icon: <HomeRounded />, label: "Overview", path: "/dashboard" },
+  { icon: <SwapVertRounded />, label: "Transactions", path: "/transactions" },
+];
+
+<Sidebar items={items} status="idle" />
+```
+
+## Default
+
+Sidebar expandida com todos os itens de navegação.
+
+<Canvas of={SidebarStories.Default} />
+
+## Active Item
+
+Item de navegação destacado conforme rota ativa.
+
+<Canvas of={SidebarStories.ActiveItem} />
+
+## Minimized
+
+Sidebar recolhida exibindo apenas os ícones.
+
+<Canvas of={SidebarStories.Minimized} />
+
+## Loading
+
+Estado de carregamento com skeleton nos itens de navegação.
+
+<Canvas of={SidebarStories.Loading} />
+
+## Empty
+
+Sem itens de navegação.
+
+<Canvas of={SidebarStories.Empty} />
+
+## Error State
+
+Mensagem de erro quando a navegação não pôde ser carregada.
+
+<Canvas of={SidebarStories.ErrorState} />
+
+## Mobile
+
+Layout adaptado para telas mobile.
+
+<Canvas of={SidebarStories.Mobile} />
+
+## Controlled Minimize
+
+Controle externo do estado minimizado/expandido.
+
+<Canvas of={SidebarStories.ControlledMinimize} />
