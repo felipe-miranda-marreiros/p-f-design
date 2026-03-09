@@ -20,6 +20,9 @@ const config: StorybookConfig = {
 	framework: "storybook-react-rsbuild",
 	rsbuildFinal: (config) => {
 		if (process.env.STORYBOOK_BASE) {
+			config.server = config.server || {};
+			config.server.base = process.env.STORYBOOK_BASE;
+
 			config.output = config.output || {};
 			config.output.assetPrefix = process.env.STORYBOOK_BASE;
 		}
