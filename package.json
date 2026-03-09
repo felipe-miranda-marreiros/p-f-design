@@ -14,7 +14,7 @@
 		"clean": "turbo run clean",
 		"storybook": "pnpm --filter @felipe-miranda-marreiros/storybook dev",
 		"build-storybook": "turbo run build --filter=@felipe-miranda-marreiros/storybook",
-		"storybook:test": "pnpm --filter @felipe-miranda-marreiros/storybook test",
+		"storybook:test": "pnpm --filter @felipe-miranda-marreiros/storybook test:storybook",
 		"coverage:storybook": "pnpm --filter @felipe-miranda-marreiros/storybook coverage",
 		"prepare": "lefthook install"
 	},

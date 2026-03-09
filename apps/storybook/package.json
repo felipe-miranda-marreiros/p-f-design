@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "storybook dev -p 6006",
 		"build": "storybook build",
-		"test": "test-storybook --testTimeout=60000 --maxWorkers=2",
+		"test:storybook": "test-storybook --testTimeout=60000 --maxWorkers=2",
 		"coverage": "test-storybook --coverage --testTimeout=60000 --maxWorkers=2"
 	},
 	"devDependencies": {
