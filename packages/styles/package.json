@@ -2,7 +2,9 @@
 	"name": "@felipe-miranda-marreiros/styles",
 	"version": "1.0.0",
 	"type": "module",
-	"sideEffects": false,
+	"sideEffects": [
+		"./src/mui-augmentation.ts"
+	],
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.js",
 	"types": "./dist/index.d.ts",
