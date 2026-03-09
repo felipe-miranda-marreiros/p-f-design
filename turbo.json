@@ -4,7 +4,8 @@
 		"build": {
 			"dependsOn": ["^build"],
 			"inputs": ["$TURBO_DEFAULT$", "!**/*.stories.{tsx,jsx,mdx}", "!**/*.mdx"],
-			"outputs": ["dist/**"]
+			"env": ["STORYBOOK_BASE"],
+			"outputs": ["dist/**", "storybook-static/**"]
 		},
 		"typecheck": {
 			"dependsOn": ["^build"],
