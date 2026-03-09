@@ -3,6 +3,7 @@ name: Storybook
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -11,7 +12,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -21,11 +22,15 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
+<<<<<<< Updated upstream
       - run: pnpm install --frozen-lockfile
       - run: pnpm build-storybook
         env:
@@ -35,4 +40,20 @@ jobs:
         with:
           path: apps/storybook/storybook-static
       - id: deployment
+=======
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build Storybook
+        run: pnpm build-storybook
+        env:
+          STORYBOOK_BASE: /${{ github.event.repository.name }}/
+      - name: Configure Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: apps/storybook/storybook-static
+      - name: Deploy to GitHub Pages
+        id: deployment
+>>>>>>> Stashed changes
         uses: actions/deploy-pages@v4
