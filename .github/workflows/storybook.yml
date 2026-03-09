@@ -27,11 +27,12 @@ jobs:
         with:
           node-version: 20
       - run: pnpm install --frozen-lockfile
-      - run: ./node_modules/.bin/turbo run build --filter="./packages/**"
       - run: pnpm build-storybook
+        env:
+          STORYBOOK_BASE: /${{ github.event.repository.name }}/
       - uses: actions/configure-pages@v4
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: packages/ui/storybook-static
+          path: apps/storybook/storybook-static
       - id: deployment
         uses: actions/deploy-pages@v4
