@@ -1,4 +1,3 @@
-/// <reference path="./mui-augmentation.d.ts" />
 import { createTheme } from "@mui/material";
 import { colors } from "./colors";
 import { typography } from "./typography";
