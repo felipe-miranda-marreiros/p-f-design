@@ -30,17 +30,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-<<<<<<< Updated upstream
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm build-storybook
-        env:
-          STORYBOOK_BASE: /${{ github.event.repository.name }}/
-      - uses: actions/configure-pages@v4
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: apps/storybook/storybook-static
-      - id: deployment
-=======
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Build Storybook
@@ -55,5 +44,4 @@ jobs:
           path: apps/storybook/storybook-static
       - name: Deploy to GitHub Pages
         id: deployment
->>>>>>> Stashed changes
         uses: actions/deploy-pages@v4
