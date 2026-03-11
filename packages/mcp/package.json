@@ -1,0 +1,34 @@
+{
+	"name": "@felipe-miranda-marreiros/mcp",
+	"version": "1.0.0",
+	"description": "MCP server for @felipe-miranda-marreiros design system component documentation",
+	"type": "module",
+	"bin": {
+		"design-system-mcp": "./dist/index.js"
+	},
+	"main": "./dist/index.js",
+	"files": [
+		"dist"
+	],
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com",
+		"access": "restricted"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/felipe-miranda-marreiros/p-f-design.git"
+	},
+	"scripts": {
+		"build": "tsup",
+		"typecheck": "tsc --noEmit",
+		"clean": "rm -rf dist"
+	},
+	"dependencies": {
+		"@modelcontextprotocol/sdk": "^1.27.1",
+		"zod": "^3.25.76"
+	},
+	"devDependencies": {
+		"tsup": "^8.5.1",
+		"typescript": "^5.9.3"
+	}
+}
